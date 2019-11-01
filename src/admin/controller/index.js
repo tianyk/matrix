@@ -3,36 +3,36 @@
 import Base from './base.js';
 
 export default class extends Base {
-  async __before(){
+  async __before() {
     this.userInfo = await this.session('userInfo');
-    if(this.userInfo){
+    if (this.userInfo) {
       this.assign('user', this.userInfo);
-      return Promise.resolve();
+      return true;
     }
-    this.redirect('/admin/user');   
-    return Promise.reject('Required login --> redirecting.'); 
+    this.redirect('/admin/user');
+    return false;
   }
-  
-  async indexAction(){
-    let page = this.get('page') || 1;
-    let num = this.get('num') || 10;
-    let q = this.get('q');
 
-    let condition = {
-      userId: this.userInfo.id, 
-      state:["<>", 2]
+  async indexAction() {
+    const page = this.get('page') || 1;
+    const num = this.get('num') || 10;
+    const q = this.get('q');
+
+    const condition = {
+      userId: this.userInfo.id,
+      state: ['<>', 2]
     };
 
-    if(q){
+    if (q) {
       condition.title = ['like', '%' + q + '%'];
     }
 
-    let model = this.model('slideshare');
-    let slides = await model.page(page, num)
+    const model = this.model('slideshare');
+    const slides = await model.page(page, num)
       .field('slideshare.id, title, theme, state, updateTime, createTime, content, name')
       .join({
-        table:'user',
-        join:'inner',
+        table: 'user',
+        join: 'inner',
         as: 'u',
         on: ['userId', 'u.id']
       })
@@ -41,54 +41,54 @@ export default class extends Base {
       .countSelect();
 
     this.assign({
-      slides: slides.data||[],
+      slides: slides.data || [],
       pages: slides.totalPages,
       page: slides.currentPage
     });
     return this.display();
   }
-  
-  async trashAction(){
-    let model = this.model('slideshare');
-    let page = this.get('page') || 1;
-    let num = this.get('num') || 10;
-    
-    let slides = await model.page(page, num)
+
+  async trashAction() {
+    const model = this.model('slideshare');
+    const page = this.get('page') || 1;
+    const num = this.get('num') || 10;
+
+    const slides = await model.page(page, num)
       .field('slideshare.id, title, theme, state, updateTime, createTime, content, name')
       .join({
-        table:'user',
-        join:'inner',
+        table: 'user',
+        join: 'inner',
         as: 'u',
         on: ['userId', 'u.id']
       })
       .order('createTime DESC')
-      .where({userId: this.userInfo.id, state:["=", 2]})
+      .where({userId: this.userInfo.id, state: ['=', 2]})
       .countSelect();
 
     this.assign({
-      slides: slides.data||[],
+      slides: slides.data || [],
       pages: slides.totalPages,
       page: slides.currentPage
     });
     return this.display();
   }
 
-  settingsAction(){
+  settingsAction() {
     return this.display();
   }
 
-  async imagesAction(){
-    let model = this.model('images');
-    let page = this.get('page') || 1;
-    let num = this.get('num') || 10;
+  async imagesAction() {
+    const model = this.model('images');
+    const page = this.get('page') || 1;
+    const num = this.get('num') || 10;
 
-    let list = await model.page(page, num)
+    const list = await model.page(page, num)
       .where({userId: this.userInfo.id})
       .order('uploadTime DESC')
       .countSelect();
 
     this.assign({
-      list:list.data || [],
+      list: list.data || [],
       pages: list.totalPages,
       page: list.currentPage
     });
@@ -96,13 +96,13 @@ export default class extends Base {
     return this.display();
   }
 
-  async editAction(){
-    let {id} = this.get();
+  async editAction() {
+    const {id} = this.get();
     let slide_data = '';
 
-    if(id){
-      let model = this.model('slideshare');
-      let slide = await model.where({id: id}).find();
+    if (id) {
+      const model = this.model('slideshare');
+      const slide = await model.where({id: id}).find();
       slide_data = slide;
     }
 
@@ -110,7 +110,7 @@ export default class extends Base {
     return this.display();
   }
 
-  demoAction(){
+  demoAction() {
     return this.display();
   }
 }

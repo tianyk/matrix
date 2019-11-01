@@ -26,10 +26,10 @@
       <div class="span12">
       <%if(slides.length <= 0){%>
         <div class="alert alert-block">
-          <%if(!http.get('q')){%>
+          <%if(!ctx.get('q')){%>
           There is no slideshares. You can create one.
           <%}else{%>
-          No slides found. The query string is `<%=http.get('q')%>`.
+          No slides found. The query string is `<%=ctx.get('q')%>`.
           <%}%>
         </div>
       <%}else{%>

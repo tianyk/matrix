@@ -22,7 +22,7 @@ function initReveal(){
       { src: '/static/module/reveal/plugin/notes/notes.js', async: true },
 
       { src: '/static/module/reveal/plugin/prism/prism.js', condition: function() { return !!document.querySelector('pre code'); }, callback: function() { 
-        var theme = "<%=http.get('theme') || slide.theme || 'default'%>";
+        var theme = "<%=ctx.get('theme') || slide.theme || 'default'%>";
         var hightLightTheme;
 
         var hlThemeMap = {
@@ -97,7 +97,7 @@ function initReveal(){
 
             if(initChart){
               slide.setAttribute('data-echart-loaded', 1);
-              var theme = "<%=http.get('ct')%>" || slide.getAttribute('data-echart') || 'default';
+              var theme = "<%=ctx.get('ct')%>" || slide.getAttribute('data-echart') || 'default';
 
               var optionsEl = slide.querySelector('script[type="text/template"]'), options;
               if(optionsEl) options = (new Function('option', optionsEl.innerHTML.trim() + ';return option;'))();

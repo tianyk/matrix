@@ -1,6 +1,6 @@
 <%include ../common/inc/slide_header.html%>
 
-<%if(!http.get('id')){%>
+<%if(!ctx.get('id')){%>
 <script type="text/javascript">
   var contentEl = document.querySelector('[type="text/x-slide"]');
   var data = localStorage.getItem('slide_content');

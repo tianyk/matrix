@@ -1,31 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Matrix Slides</title>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="/static/css/portal.css" />
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Matrix Slides</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/static/css/portal.css" />
+    <link
+      rel="stylesheet"
+      href="http://at.alicdn.com/t/font_1486930_zp3auba82sp.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static//css/bootstrap.4.3.1.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-    <body>
-        <article id="doc">
-            <header>
-                <h1>大交通ppt市场</h1><a href="/admin">&nbsp;</a>
-            </header>
-            <section>
-            <ul class="decks">
-              <%for(var i = 0; i < slides.length; i++){%>
-                <li class="deck">
-                    <a href="/slide/show?id=<%=slides[i].id%>" target="_blank">
-                        <h3 class="title"><%=slides[i].title%></h3>
-                        <p class="subtitle"><%=new Date(slides[i].updateTime).toDateString()%></p>
-                    </a>
-                </li>
-              <%}%>
-            </ul>
-            </section>
-        </article>
-    </body>
+    <script src="//wpstatic.mafengwo.net/mtraffic/static/js/moment-2.10.6.min.js"></script>
+  </head>
+
+  <body>
+    <article id="doc" class="home">
+      <header>
+        <h1>大交通ppt市场</h1>
+        <a href="/admin">&nbsp;</a>
+      </header>
+      <section>
+        <ul class="decks">
+          <%for(var i = 0; i < slides.length; i++){%>
+          <a href="/slide/show?id=<%=slides[i].id%>" target="_blank">
+            <li class="deck" class="home-cell">
+              <h3 class="title">
+                <%=slides[i].title%>
+              </h3>
+              <div
+                class="container home-cell__footer"
+                style="font-size: 12px;;"
+              >
+                <div class="row">
+                  <div class="col-3 p-1">
+                    <%= slides[i].user.name%>
+                  </div>
+                  <div class="col-7 p-1">
+                    <i class="iconfont iconicon-test2"></i>
+                    <%= slides[i].updateTime%>
+                  </div>
+                  <div class="col-2 p-1">
+                    <i class="iconfont iconicon-test"></i>
+
+                    <%= slides[i].viewCount%>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </a>
+          <%}%>
+        </ul>
+      </section>
+    </article>
+  </body>
 </html>

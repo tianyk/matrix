@@ -37,7 +37,7 @@
 <!--start-top-serch-->
 <div id="search">
   <form action="/admin/index/index" method="get">
-    <input id="q" name="q" type="text" placeholder="Search here..." value="<%=http.get('q')%>"/>
+    <input id="q" name="q" type="text" placeholder="Search here..." value="<%=ctx.get('q')%>"/>
     <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
   </form>
 </div>
@@ -56,6 +56,7 @@
     </li>
     <li><a href="/admin/index/trash"><i class="fa fa-trash"></i> <span>Trash</span></a> </li>
     <li><a href="/admin/index/settings"><i class="fa fa-cog"></i> <span>Settings</span></a> </li>
+    <li><a href="/admin/index/users"><i class="fa fa-cog"></i> <span>Users</span></a> </li>
     <li><a href="https://github.com/akira-cn/matrix#matrix" target="_blank"><i class="fa fa-h-square"></i> <span>Help</span></a> </li>
   </ul>
 </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-export default {
+export default class extends think.Service {
   /**
     {
       type:'qiniu',
@@ -11,9 +11,9 @@ export default {
       qcdn: {}
     }
    */
-  getInstance(){
-    let conf = think.config('uploader');
-    let instance = require(__dirname + '/uploaders/' + conf.type).default.bind(null, conf[conf.type]);
+  getInstance() {
+    const conf = think.config('uploader');
+    const instance = require(__dirname + '/uploaders/' + conf.type).default.bind(null, conf[conf.type]);
 
     return instance;
   }

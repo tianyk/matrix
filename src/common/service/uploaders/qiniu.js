@@ -1,24 +1,26 @@
 'use strict';
 
-export default (opts, src) => {
-  let qiniu = require('node-qiniu');
-  qiniu.config({
-    access_key: opts.access_key,
-    secret_key: opts.secret_key
-  });
+export default class extends think.Service {
+  saveFile(opts, src) {
+    const qiniu = require('node-qiniu');
+    qiniu.config({
+      access_key: opts.access_key,
+      secret_key: opts.secret_key
+    });
 
-  let bucket = qiniu.bucket(opts.bucket);
+    const bucket = qiniu.bucket(opts.bucket);
 
-  let des = 'matrix/' + require('path').parse(src).base;
+    const des = 'matrix/' + require('path').parse(src).base;
 
-  return new Promise((resolve,reject) => {
-    bucket.putFile(des, src, (err, reply) => {
-      if(!err){
-        let url = opts.domain +'/'+ des;
-        resolve(url);
-      }else{
-        reject(err);
-      }
-    }); 
-  });
+    return new Promise((resolve, reject) => {
+      bucket.putFile(des, src, (err, reply) => {
+        if (!err) {
+          const url = opts.domain + '/' + des;
+          resolve(url);
+        }else {
+          reject(err);
+        }
+      });
+    });
+  }
 }

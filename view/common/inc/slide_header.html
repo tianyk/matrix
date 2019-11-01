@@ -5,7 +5,7 @@
   <title><%=slide.title||'Untitled Slide'%></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="/static/module/reveal/css/reveal.css">
-    <%if(http.get('theme') === 'print-pdf'){%>
+    <%if(ctx.param('theme') === 'print-pdf'){%>
       <link rel="stylesheet" href="/static/module/reveal/css/theme/simple.css" id="theme">
       <style type="text/css" media="print">  
         .print-pdf *{box-shadow:none!important;}
@@ -19,8 +19,8 @@
         .print-pdf .noprint{position:absolute;display:inline-block;width:500px;left:50%;top:35%;margin-left:-250px;}
         body.print-pdf{overflow:hidden;}
       </style>     
-    <%}else if(http.get('theme') || slide.theme){%>
-    <link rel="stylesheet" href="/static/module/reveal/css/theme/<%=http.get('theme') || slide.theme%>.css" id="theme">
+    <%}else if(ctx.param('theme') || slide.theme){%>
+    <link rel="stylesheet" href="/static/module/reveal/css/theme/<%=ctx.param('theme') || slide.theme%>.css" id="theme">
     <%}%>
     
     <!-- Printing and PDF exports -->
@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-  <%if(http.get('theme') === 'print-pdf'){%>
+  <%if(ctx.param('theme') === 'print-pdf'){%>
     <div class="noprint">选择浏览器“打印预览”预览效果</div>
   <%}%>
   <div class="reveal">

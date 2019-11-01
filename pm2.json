@@ -1,10 +1,9 @@
 {
   "apps": [{
-    "name": "slide",
-    "script": "www/production.js",
-    "cwd": "/Users/akira_cn/Workspace/yuntu/slide",
-    "exec_mode": "cluster",
-    "instances": 0,
+    "name": "ppt",
+    "script": "production.js",
+    "cwd": "/Users/guoyangyang/code/js/node/matrix/ppt",
+    "exec_mode": "fork",
     "max_memory_restart": "1G",
     "autorestart": true,
     "node_args": [],

@@ -44,7 +44,7 @@
         <div class="widget-box">
           <div class="widget-content nopadding">
             <form id='save_form' action="/admin/slide/save" method="post" class="form-horizontal">
-              <input id="sid" name="sid" type="hidden" value="<%=slide_data.id || ''%>"/>
+              <input id="sid" name="id" type="hidden" value="<%=slide_data.id || ''%>"/>
               <div class="control-group">
                 <label class="control-label">Title :</label>
                 <div class="controls">
@@ -160,6 +160,8 @@ if(window.FormData){
   $('#theme').val("<%=slide_data.theme || 'black'%>");
 
   function updatePreview(){
+    console.log(6666)
+    debugger
     var content = editor.getValue() || $("#slide_content").val() || $("#title").val() || '# Untitled Slideshare';
     if(content){
       localStorage.setItem('slide_content', content);
