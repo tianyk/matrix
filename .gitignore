@@ -30,7 +30,9 @@ node_modules/
 output/
 output.tar.gz
 
-runtime/
+# runtime/
+
+runtime/session
 app/
 
 config.development.js
