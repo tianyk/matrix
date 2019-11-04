@@ -16,12 +16,12 @@
 
 ## 愿景
 
-reveal 这个 HTML 呈现框架可以很好的制作幻灯片。但是使用比较繁琐还需要部署。此项目让创建、部署、分享 ppt 变的简单。
+reveal,nodeppt 这个 HTML 呈现框架可以很好的制作幻灯片。但是使用比较繁琐还需要部署。此项目让创建、部署、分享 ppt 变的简单。
 
-fork 月影的 matrix。加入了用户注册和浏览率记录。同时 thinkjs 升级到了 3.0
+fork 月影的 matrix 和 nodeppt。加入了用户注册和浏览率记录。同时 thinkjs 升级到了 3.0
 希望此项目可以帮助公司建立自己内部的 ppt 分享平台
 
-Application created by [ThinkJS](http://www.thinkjs.org)
+使用方式请参与[nodeppt](https://github.com/ksky521/nodeppt)
 
 ## Install dependencies
 
