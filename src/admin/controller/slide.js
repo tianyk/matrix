@@ -110,12 +110,17 @@ export default class extends Base {
 
   async previewAction() {
     const { id } = this.get();
+    console.log(6666, id);
     if (id) {
       const model = this.model('slideshare');
       const slide = await model.where({ id }).find();
       // console.log(slide);
-      this.assign({ slide });
+      // this.assign({ slide });
+      const pptParser = think.service('ppt-parser');
+      const data = pptParser.parse(slide.content);
+      console.log(666, data);
+      this.assign(data);
+      return this.display();
     }
-    return this.display();
   }
 }

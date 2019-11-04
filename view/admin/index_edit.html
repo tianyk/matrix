@@ -160,8 +160,6 @@ if(window.FormData){
   $('#theme').val("<%=slide_data.theme || 'black'%>");
 
   function updatePreview(){
-    console.log(6666)
-    debugger
     var content = editor.getValue() || $("#slide_content").val() || $("#title").val() || '# Untitled Slideshare';
     if(content){
       localStorage.setItem('slide_content', content);
@@ -203,8 +201,20 @@ if(window.FormData){
   });
 
   $('#preview').on('click', function(e){
-    e.target.href = '/admin/slide/preview?theme=' + $('#theme').val()+'&_t='+ (new Date).getTime() +'#/'+getCurrentPage();
-    return updatePreview();
+   
+    $.ajax({
+      type:'POST',
+      url:'/admin/slide/save',
+      data:$('#save_form').serialize(),
+      success: function(res){
+        const id = res.id
+        const href = '/admin/slide/preview?id=' +id +'&_t='+ (new Date).getTime() +'#/'+getCurrentPage();
+        window.open(href)
+        
+      }})
+
+      return false;
+    // return updatePreview();
   });
 
   $('#print').on('click', function(e){

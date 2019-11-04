@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdn.staticfile.org/prism/1.15.0/themes/prism.min.css">
     <link rel="stylesheet" href="//cdn.staticfile.org/KaTeX/0.10.0-rc.1/katex.min.css">
-    <link href=/static/css/chunk-vendors.1a797d39.css rel=stylesheet>
     <% if (hasOwnProperty('prismTheme') && ['dark', 'coy', 'funky', 'okaidia', 'tomorrow', 'solarizedlight', 'twilight'].includes(prismTheme)) { %>
         <link rel="stylesheet" href="//cdn.staticfile.org/prism/1.15.0/themes/prism-<%= prismTheme %>.min.css">
     <% } %>
@@ -32,8 +31,6 @@
     </article>
 </div>
 <% if (hasOwnProperty('plugins') && plugins && plugins.indexOf && ~plugins.indexOf('echarts')) { %>
-    <script src="//cdn.staticfile.org/echarts/4.1.0-release/echarts.min.js"></script>
-   
     <script src="//cdn.staticfile.org/echarts/4.1.0-release/echarts.min.js"></script>
 <% } %>
 <% if (hasOwnProperty('plugins') && plugins && plugins.indexOf && ~plugins.indexOf('mermaid')) { %>
@@ -71,7 +68,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }, false)
 </script>
- <script src=/static/js/chunk-vendors.a044aa31.js></script>
- <script src=/static/js/slide.b43d00ba.js></script>
 </body>
 </html>
