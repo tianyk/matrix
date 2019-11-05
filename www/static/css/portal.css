@@ -40,7 +40,7 @@ a {
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 14.5em;
+  width: 18em;
   height: 12em;
   overflow: hidden;
   background: #333;
@@ -68,19 +68,26 @@ a {
 .deck a:hover .subtitle {
   color: #fff;
 }
-.deck:nth-child(5n + 1) {
+.deck{
+  background: transparent
+  ;
+}
+.deck_link {
+  display: inline-block;
+}
+.deck_link:nth-child(5n + 1) {
   background-color: #09c;
 }
-.deck:nth-child(5n + 2) {
+.deck_link:nth-child(5n + 2) {
   background-color: #93c;
 }
-.deck:nth-child(5n + 3) {
+.deck_link:nth-child(5n + 3) {
   background-color: #690;
 }
-.deck:nth-child(5n + 4) {
+.deck_link:nth-child(5n + 4) {
   background-color: #f80;
 }
-.deck:nth-child(5n) {
+.deck_link:nth-child(5n) {
   background-color: #c00;
 }
 
