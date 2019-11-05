@@ -68,9 +68,19 @@ a {
 .deck a:hover .subtitle {
   color: #fff;
 }
-.deck{
-  background: transparent
-  ;
+.deck {
+  background: transparent;
+}
+.ppt-cards .card-footer {
+  font-size: 14px;
+  padding: 0;
+}
+.ppt-cards .card-text{
+  padding:1.5em 0.2em;
+  text-align: left;
+}
+.ppt-card{
+  cursor: pointer;
 }
 .deck_link {
   display: inline-block;

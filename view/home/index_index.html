@@ -25,6 +25,7 @@
     />
 
     <script src="//wpstatic.mafengwo.net/mtraffic/static/js/moment-2.10.6.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script> 
   </head>
 
   <body>
@@ -34,9 +35,30 @@
         <a href="/admin">&nbsp;</a>
       </header>
       <section>
-        <ul class="decks">
+        <ul class="card-deck ppt-cards">
           <%for(var i = 0; i < slides.length; i++){%>
-          <a href="/slide/show?id=<%=slides[i].id%>" target="_blank" class="deck_link">
+          <!-- <a href="/slide/show?id=<%=slides[i].id%>" target="_blank" ></a> -->
+          <div class="card bg-light mb-3 ppt-card" style="max-width: 18rem;" data-id="<%=slides[i].id%>">
+            <div class="card-body">
+              <h2 class="card-text"><%=slides[i].title%></h2>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex justify-content-between">
+                <div class=" p-1">
+                  <%= slides[i].user.name%>
+                </div>
+                <div class="p-1">
+                  <i class="iconfont iconicon-test2"></i>
+                  <%= slides[i].updateTime%>
+                </div>
+                <div class=" p-1">
+                  <i class="iconfont iconicon-test"></i>
+                  <%= slides[i].viewCount%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- </a>
             <li class="deck" class="home-cell">
               <h3 class="title">
                 <%=slides[i].title%>
@@ -45,26 +67,20 @@
                 class="container home-cell__footer"
                 style="font-size: 12px;;"
               >
-                <div class="row">
-                  <div class="col-3 p-1">
-                    <%= slides[i].user.name%>
-                  </div>
-                  <div class="col-7 p-1">
-                    <i class="iconfont iconicon-test2"></i>
-                    <%= slides[i].updateTime%>
-                  </div>
-                  <div class="col-2 p-1">
-                    <i class="iconfont iconicon-test"></i>
-
-                    <%= slides[i].viewCount%>
-                  </div>
-                </div>
+               
               </div>
             </li>
-          </a>
+          </a> -->
           <%}%>
         </ul>
       </section>
     </article>
+    <script>
+      $('.ppt-cards').on('click', '.ppt-card',function(){
+        const id = $(this).attr('data-id');
+        const url = `/slide/show?id=${id}`
+        window.open(url)
+      })
+    </script>
   </body>
 </html>
