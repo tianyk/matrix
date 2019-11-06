@@ -1,5 +1,5 @@
-FROM mhart/alpine-node:8.9.4
-RUN apk update && apk add bash && rm -rf /var/cache/apk/*
+FROM hub.mfwdev.com/paas/node:8.12.0-stretch
+# RUN apk update && apk add bash && rm -rf /var/cache/apk/*
 
 
 WORKDIR /animaris

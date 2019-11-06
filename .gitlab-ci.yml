@@ -10,3 +10,5 @@ build_image:
   script:
     - docker image  build -t zzuligy/online-ppt .
     - npm run serve
+
+    
