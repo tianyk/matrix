@@ -9,6 +9,6 @@ services:
 build_image:
   script:
     - docker image  build -t zzuligy/online-ppt .
-    - npm run serve
+    - docker container run -p 8360:8360 -v $PWD/runtime:/animaris/runtime  zzuligy/online-ppt
 
     

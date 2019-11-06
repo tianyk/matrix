@@ -9,7 +9,7 @@
     "compile": "babel --no-babelrc src/ --presets think-node --out-dir app/",
     "lint": "eslint src/",
     "lint-fix": "eslint --fix src/",
-    "serve": "docker container run -p 8360:8360 -v $PWD/runtime:/animaris/runtime  -it zzuligy/online-ppt"
+    "serve": "docker container run -p 8360:8360 -v $PWD/runtime:/animaris/runtime  zzuligy/online-ppt"
   },
   "dependencies": {
     "lodash.defaultsdeep": "^4.6.1",
