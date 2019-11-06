@@ -4,7 +4,7 @@ FROM hub.mfwdev.com/paas/node:8.12.0-stretch
 
 WORKDIR /animaris
 COPY package.json /animaris/package.json
-RUN npm i  --registry=https://registry.npm.taobao.org
+RUN npm i
 
 COPY src /animaris/src
 COPY view /animaris/view
