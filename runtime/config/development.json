@@ -13,13 +13,24 @@
     "errmsgField": "errmsg",
     "defaultErrno": 1000,
     "validateDefaultErrno": 1001,
+    "uploader": {
+      "type": "file",
+      "file": {},
+      "qcdn": {},
+      "qiniu": {
+        "access_key": "",
+        "secret_key": "",
+        "bucket": "",
+        "domain": ""
+      }
+    },
     "__esModule": true,
     "default": {},
     "cache": {
       "type": "file",
       "file": {
         "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
+        "cachePath": "/animaris/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 1
       }
@@ -29,7 +40,7 @@
       "sqlite": {
         "logConnect": true,
         "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
+        "path": "/animaris/runtime/sqlite",
         "database": "matrix",
         "encoding": "utf8",
         "connectionLimit": 1,
@@ -42,13 +53,13 @@
         "cookie": {
           "name": "thinkjs"
         },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
+        "sessionPath": "/animaris/runtime/session"
       }
     },
     "view": {
       "type": "ejs",
       "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
+        "viewPath": "/animaris/view",
         "extname": ".html",
         "sep": "_"
       }
@@ -60,14 +71,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       }
     }
   },
@@ -85,11 +96,22 @@
     "errmsgField": "errmsg",
     "defaultErrno": 1000,
     "validateDefaultErrno": 1001,
+    "uploader": {
+      "type": "file",
+      "file": {},
+      "qcdn": {},
+      "qiniu": {
+        "access_key": "",
+        "secret_key": "",
+        "bucket": "",
+        "domain": ""
+      }
+    },
     "cache": {
       "type": "file",
       "file": {
         "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
+        "cachePath": "/animaris/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 1
       }
@@ -99,7 +121,7 @@
       "sqlite": {
         "logConnect": true,
         "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
+        "path": "/animaris/runtime/sqlite",
         "database": "matrix",
         "encoding": "utf8",
         "connectionLimit": 1,
@@ -112,13 +134,13 @@
         "cookie": {
           "name": "thinkjs"
         },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
+        "sessionPath": "/animaris/runtime/session"
       }
     },
     "view": {
       "type": "ejs",
       "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
+        "viewPath": "/animaris/view",
         "extname": ".html",
         "sep": "_"
       }
@@ -130,14 +152,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       }
     }
   },
@@ -155,11 +177,22 @@
     "errmsgField": "errmsg",
     "defaultErrno": 1000,
     "validateDefaultErrno": 1001,
+    "uploader": {
+      "type": "file",
+      "file": {},
+      "qcdn": {},
+      "qiniu": {
+        "access_key": "",
+        "secret_key": "",
+        "bucket": "",
+        "domain": ""
+      }
+    },
     "cache": {
       "type": "file",
       "file": {
         "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
+        "cachePath": "/animaris/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 1
       }
@@ -169,7 +202,7 @@
       "sqlite": {
         "logConnect": true,
         "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
+        "path": "/animaris/runtime/sqlite",
         "database": "matrix",
         "encoding": "utf8",
         "connectionLimit": 1,
@@ -182,13 +215,13 @@
         "cookie": {
           "name": "thinkjs"
         },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
+        "sessionPath": "/animaris/runtime/session"
       }
     },
     "view": {
       "type": "ejs",
       "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
+        "viewPath": "/animaris/view",
         "extname": ".html",
         "sep": "_"
       }
@@ -200,154 +233,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      }
-    }
-  },
-  "config": {
-    "port": 8360,
-    "workers": 1,
-    "stickyCluster": false,
-    "startServerTimeout": 3000,
-    "reloadSignal": "SIGUSR2",
-    "processKillTimeout": 10000,
-    "jsonpCallbackField": "callback",
-    "jsonContentType": "application/json",
-    "jsonpContentType": "application/javascript",
-    "errnoField": "errno",
-    "errmsgField": "errmsg",
-    "defaultErrno": 1000,
-    "validateDefaultErrno": 1001,
-    "cache": {
-      "type": "file",
-      "file": {
-        "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
-        "pathDepth": 1,
-        "gcInterval": 1
-      }
-    },
-    "model": {
-      "type": "sqlite",
-      "sqlite": {
-        "logConnect": true,
-        "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
-        "database": "matrix",
-        "encoding": "utf8",
-        "connectionLimit": 1,
-        "prefix": ""
-      }
-    },
-    "session": {
-      "type": "file",
-      "file": {
-        "cookie": {
-          "name": "thinkjs"
-        },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
-      }
-    },
-    "view": {
-      "type": "ejs",
-      "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
-        "extname": ".html",
-        "sep": "_"
-      }
-    },
-    "logger": {
-      "type": "console",
-      "console": {},
-      "file": {
-        "backups": 10,
-        "absolute": true,
-        "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      },
-      "dateFile": {
-        "level": "ALL",
-        "absolute": true,
-        "pattern": "-yyyy-MM-dd",
-        "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      }
-    }
-  },
-  "controller": {
-    "port": 8360,
-    "workers": 1,
-    "stickyCluster": false,
-    "startServerTimeout": 3000,
-    "reloadSignal": "SIGUSR2",
-    "processKillTimeout": 10000,
-    "jsonpCallbackField": "callback",
-    "jsonContentType": "application/json",
-    "jsonpContentType": "application/javascript",
-    "errnoField": "errno",
-    "errmsgField": "errmsg",
-    "defaultErrno": 1000,
-    "validateDefaultErrno": 1001,
-    "cache": {
-      "type": "file",
-      "file": {
-        "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
-        "pathDepth": 1,
-        "gcInterval": 1
-      }
-    },
-    "model": {
-      "type": "sqlite",
-      "sqlite": {
-        "logConnect": true,
-        "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
-        "database": "matrix",
-        "encoding": "utf8",
-        "connectionLimit": 1,
-        "prefix": ""
-      }
-    },
-    "session": {
-      "type": "file",
-      "file": {
-        "cookie": {
-          "name": "thinkjs"
-        },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
-      }
-    },
-    "view": {
-      "type": "ejs",
-      "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
-        "extname": ".html",
-        "sep": "_"
-      }
-    },
-    "logger": {
-      "type": "console",
-      "console": {},
-      "file": {
-        "backups": 10,
-        "absolute": true,
-        "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      },
-      "dateFile": {
-        "level": "ALL",
-        "absolute": true,
-        "pattern": "-yyyy-MM-dd",
-        "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       }
     }
   },
@@ -365,13 +258,24 @@
     "errmsgField": "errmsg",
     "defaultErrno": 1000,
     "validateDefaultErrno": 1001,
+    "uploader": {
+      "type": "file",
+      "file": {},
+      "qcdn": {},
+      "qiniu": {
+        "access_key": "",
+        "secret_key": "",
+        "bucket": "",
+        "domain": ""
+      }
+    },
     "__esModule": true,
     "default": {},
     "cache": {
       "type": "file",
       "file": {
         "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
+        "cachePath": "/animaris/runtime/cache",
         "pathDepth": 1,
         "gcInterval": 1
       }
@@ -381,7 +285,7 @@
       "sqlite": {
         "logConnect": true,
         "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
+        "path": "/animaris/runtime/sqlite",
         "database": "matrix",
         "encoding": "utf8",
         "connectionLimit": 1,
@@ -394,13 +298,13 @@
         "cookie": {
           "name": "thinkjs"
         },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
+        "sessionPath": "/animaris/runtime/session"
       }
     },
     "view": {
       "type": "ejs",
       "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
+        "viewPath": "/animaris/view",
         "extname": ".html",
         "sep": "_"
       }
@@ -412,154 +316,14 @@
         "backups": 10,
         "absolute": true,
         "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       },
       "dateFile": {
         "level": "ALL",
         "absolute": true,
         "pattern": "-yyyy-MM-dd",
         "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      }
-    }
-  },
-  "logic": {
-    "port": 8360,
-    "workers": 1,
-    "stickyCluster": false,
-    "startServerTimeout": 3000,
-    "reloadSignal": "SIGUSR2",
-    "processKillTimeout": 10000,
-    "jsonpCallbackField": "callback",
-    "jsonContentType": "application/json",
-    "jsonpContentType": "application/javascript",
-    "errnoField": "errno",
-    "errmsgField": "errmsg",
-    "defaultErrno": 1000,
-    "validateDefaultErrno": 1001,
-    "cache": {
-      "type": "file",
-      "file": {
-        "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
-        "pathDepth": 1,
-        "gcInterval": 1
-      }
-    },
-    "model": {
-      "type": "sqlite",
-      "sqlite": {
-        "logConnect": true,
-        "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
-        "database": "matrix",
-        "encoding": "utf8",
-        "connectionLimit": 1,
-        "prefix": ""
-      }
-    },
-    "session": {
-      "type": "file",
-      "file": {
-        "cookie": {
-          "name": "thinkjs"
-        },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
-      }
-    },
-    "view": {
-      "type": "ejs",
-      "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
-        "extname": ".html",
-        "sep": "_"
-      }
-    },
-    "logger": {
-      "type": "console",
-      "console": {},
-      "file": {
-        "backups": 10,
-        "absolute": true,
-        "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      },
-      "dateFile": {
-        "level": "ALL",
-        "absolute": true,
-        "pattern": "-yyyy-MM-dd",
-        "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      }
-    }
-  },
-  "model": {
-    "port": 8360,
-    "workers": 1,
-    "stickyCluster": false,
-    "startServerTimeout": 3000,
-    "reloadSignal": "SIGUSR2",
-    "processKillTimeout": 10000,
-    "jsonpCallbackField": "callback",
-    "jsonContentType": "application/json",
-    "jsonpContentType": "application/javascript",
-    "errnoField": "errno",
-    "errmsgField": "errmsg",
-    "defaultErrno": 1000,
-    "validateDefaultErrno": 1001,
-    "cache": {
-      "type": "file",
-      "file": {
-        "timeout": 1,
-        "cachePath": "/Users/guoyangyang/code/js/node/matrix/runtime/cache",
-        "pathDepth": 1,
-        "gcInterval": 1
-      }
-    },
-    "model": {
-      "type": "sqlite",
-      "sqlite": {
-        "logConnect": true,
-        "logSql": true,
-        "path": "/Users/guoyangyang/code/js/node/matrix/runtime/sqlite",
-        "database": "matrix",
-        "encoding": "utf8",
-        "connectionLimit": 1,
-        "prefix": ""
-      }
-    },
-    "session": {
-      "type": "file",
-      "file": {
-        "cookie": {
-          "name": "thinkjs"
-        },
-        "sessionPath": "/Users/guoyangyang/code/js/node/matrix/runtime/session"
-      }
-    },
-    "view": {
-      "type": "ejs",
-      "ejs": {
-        "viewPath": "/Users/guoyangyang/code/js/node/matrix/view",
-        "extname": ".html",
-        "sep": "_"
-      }
-    },
-    "logger": {
-      "type": "console",
-      "console": {},
-      "file": {
-        "backups": 10,
-        "absolute": true,
-        "maxLogSize": 51200,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
-      },
-      "dateFile": {
-        "level": "ALL",
-        "absolute": true,
-        "pattern": "-yyyy-MM-dd",
-        "alwaysIncludePattern": true,
-        "filename": "/Users/guoyangyang/code/js/node/matrix/logs/app.log"
+        "filename": "/animaris/logs/app.log"
       }
     }
   }

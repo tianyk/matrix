@@ -3,70 +3,69 @@
 import Base from './base.js';
 
 export default class extends Base {
-  
-  async __before(){
+  async __before() {
     this.userInfo = await this.session('userInfo');
-    if(this.userInfo){
+    if (this.userInfo) {
       this.assign('user', this.userInfo);
       return Promise.resolve();
     }
-    this.redirect('/admin/user');   
-    return Promise.reject(); 
+    this.redirect('/admin/user');
+    return Promise.reject();
   }
-  
-  async deleteAction(){
-    let {id} = this.get();
-    let model = this.model("images");
-    let fs = require('fs');
 
-    if(id){
-      let images = await model.where({id: ['in', id]}).select();
-      //console.log(images);
-      for(var i = 0; i < images.length; i++){
-        let path = think.RESOURCE_PATH + images[i].url;
-        //console.log(path);
-        if(!/^http(s):\/\//.test(path) && fs.existsSync(path)){
+  async deleteAction() {
+    const {id} = this.get();
+    const model = this.model('images');
+    const fs = require('fs');
+
+    if (id) {
+      const images = await model.where({id: ['in', id]}).select();
+      // console.log(images);
+      for (var i = 0; i < images.length; i++) {
+        const path = think.ROOT_PATH + '/www' + images[i].url;
+        // console.log(path);
+        if (!/^http(s):\/\//.test(path) && fs.existsSync(path)) {
           fs.unlink(path);
         }
       }
-      let affectedRows = await model
+      const affectedRows = await model
         .where({id: ['in', id]})
         .delete();
     }
 
-    return this.redirect('/admin/index/images'); 
+    return this.redirect('/admin/index/images');
   }
 
-  async uploadAction(){
-    let upload = this.service('uploader').getInstance();
+  async uploadAction() {
+    const upload = this.service('uploader');
 
-    let file = this.file('file');
-    let src = file.path;
-    let moment = require('moment');
+    const file = this.file('file');
+    const src = file.path;
+    const moment = require('moment');
 
-    let res = await new Promise(async (resolve) => {
-      let qcdn = think.config('qcdn');
-      let qiniuConf = think.config('qiniu');
+    const res = await new Promise(async(resolve) => {
+      const qcdn = think.config('qcdn');
+      const qiniuConf = think.config('qiniu');
+      console.log(666, upload);
+      const url = await upload.save(src);
 
-      let url = await upload(src);
-      
-      let datetime = moment().format('YYYY-MM-DD HH:mm:ss');
+      const datetime = moment().format('YYYY-MM-DD HH:mm:ss');
 
       resolve({
         url: url,
         size: file.size,
-        filename: file.originalFilename,
+        filename: file.name,
         uploadTime: datetime,
-        userId: this.userInfo.id     
+        userId: this.userInfo.id
       });
     });
 
-    let model = this.model('images');
-    let insertId = await model.add(res);
+    const model = this.model('images');
+    const insertId = await model.add(res);
 
-    if(insertId){
+    if (insertId) {
       return this.json({error: '', url: res.url});
-    }else{
+    } else {
       return this.json({error: 'upload error'});
     }
   }

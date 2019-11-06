@@ -1,7 +1,7 @@
 body {
   font: normal 16px/1.8 "Segoe UI Light", "Lucida Grande", "Microsoft Jhenghei",
     "Microsoft Yahei", Arial, Helvetica, Sans-Serif;
-  padding: 2em;
+  /* padding: 2em; */
   background: #f1f1f1;
   color: #666;
 }
@@ -111,11 +111,11 @@ header h1:after {
   content: " 新增";
 }
 
-header a {
+/* header a {
   width: 80px;
   display: inline-block;
   margin-left: -70px;
-}
+} */
 
 .home .home-cell {
   position: relative;

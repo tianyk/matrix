@@ -1,0 +1,12 @@
+image: docker:19.03.1
+
+services:
+  - docker:19.03.1-dind
+  
+before_script:
+  - docker info
+
+build_image:
+  script:
+    - docker image  build -t zzuligy/online-ppt .
+    - npm run serve
