@@ -109,17 +109,24 @@ export default class extends Base {
   }
 
   async previewAction() {
-    const { id } = this.get();
-    console.log(6666, id);
-    if (id) {
-      const model = this.model('slideshare');
-      const slide = await model.where({ id }).find();
-      // console.log(slide);
-      // this.assign({ slide });
+    const isPost = this.isPost;
+    if (isPost) {
+      const { 'slide_content': content } = this.post();
+      console.log('6666', content);
       const pptParser = think.service('ppt-parser');
-      const data = pptParser.parse(slide.content);
-      console.log(666, data);
-      this.assign(data);
+      const data = pptParser.parse(content);
+      this.json({ data: JSON.stringify(data) });
+    } else {
+      // const { content } = this.get();
+      // console.log(6666, content);
+      // // const model = this.model('slideshare');
+      // // const slide = await model.where({ id }).find();
+      // // console.log(slide);
+      // // this.assign({ slide });
+      // const pptParser = think.service('ppt-parser');
+      // const data = pptParser.parse(content);
+
+      // this.assign(data);
       return this.display();
     }
   }

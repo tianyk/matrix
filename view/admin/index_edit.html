@@ -52,24 +52,6 @@
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Theme :</label>
-                <div class="controls">
-                  <select id="theme" name="theme">
-                    <option value="beige">beige</option>
-                    <option value="black" selected>black</option>
-                    <option value="blood">blood</option>
-                    <option value="league">league</option>
-                    <option value="moon">moon</option>
-                    <option value="night">night</option>
-                    <option value="serif">serif</option>
-                    <option value="simple">simple</option>
-                    <option value="sky">sky</option>
-                    <option value="solarized">solarized</option>
-                    <option value="white">white</option>
-                  </select>
-                </div>
-              </div>
-              <div class="control-group">
                 <textarea id="slide_content" name="slide_content"><%-slide_data.content||''%></textarea>
                 <input id="file" accept="image/*;capture=camera" capture="camera" name="file" type="file"></input>
               </div>
@@ -167,6 +149,11 @@ if(window.FormData){
     }
   }
 
+  function getEditorContent(){
+    var content = editor.getValue() || $("#slide_content").val() || $("#title").val() || '# Untitled Slideshare';
+    return content;
+  }
+
   var autosave_timer;
 
   editor.on('change', function(){
@@ -180,11 +167,7 @@ if(window.FormData){
 
   function getCurrentPage() {
     var textPos = editor.getRange({line:0, ch:0}, editor.getCursor());
-
-    return textPos
-          .split(/[\r\n]/g)
-          .filter(function(text) { return /^\-{3,}$/.test(text) })
-          .length;
+    return textPos.match(/\<slide/g)?textPos.match(/\<slide/g).length:1;
   }
 
   $(document).on("keydown", function(e) {
@@ -201,20 +184,17 @@ if(window.FormData){
   });
 
   $('#preview').on('click', function(e){
-   
     $.ajax({
       type:'POST',
-      url:'/admin/slide/save',
-      data:$('#save_form').serialize(),
+      url:'/admin/slide/preview',
+      data:{title:document.querySelector('#title').value,slide_content:getEditorContent()},
       success: function(res){
-        const id = res.id
-        const href = '/admin/slide/preview?id=' +id +'&_t='+ (new Date).getTime() +'#/'+getCurrentPage();
+        localStorage.setItem('slide_content', res.data);
+        const href = '/admin/slide/preview'+'?_t='+ (new Date).getTime() +'#slide='+getCurrentPage();
         window.open(href)
         
       }})
-
       return false;
-    // return updatePreview();
   });
 
   $('#print').on('click', function(e){
